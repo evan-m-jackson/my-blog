@@ -37,7 +37,6 @@ def load_user(user_id):
     return Users.query.get(user_id)
 
 ##CONFIGURE TABLES
-#Child
 class BlogPost(db.Model, UserMixin):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
@@ -50,7 +49,7 @@ class BlogPost(db.Model, UserMixin):
     img_url = db.Column(db.String(250), nullable=False)
     comments = relationship("Comment", back_populates="parent_post")
 
-#Parent
+
 class Users(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
